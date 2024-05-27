@@ -5,7 +5,7 @@ import { Badge } from '@mui/material'
 const Nav = () => {
     return (
         <header className='w-full '>
-            <nav className='flex justify-between w-[90%] m-auto py-3'>
+            <nav className='flex justify-between w-full m-auto py-3 px-4'>
                 <div>
                     <p className='text-2xl text-white'>CATA Admin</p>
                 </div>
