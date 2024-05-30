@@ -17,13 +17,13 @@ export const NavList=[
       {
         id:1,
         text:"Home Page",
-        link:"#",
+        link:"/",
         img:HomeIcon
       },
       {
         id:2,
         text:"Profile",
-        link:"#",
+        link:"profile",
         img:GroupIcon
       },
     ]
@@ -35,26 +35,26 @@ export const NavList=[
       {
         id:1,
         text:"Users",
-        link:"#",
+        link:"users",
         img:GroupIcon
       },
       {
         id:2,
         text:"Products",
-        link:"#",
+        link:"products",
         img:InventoryIcon
       },
       {
         id:3,
         text:"Orders",
-        link:"#",
+        link:"orders",
         img:ListAltIcon
 
       },
       {
         id:4,
         text:"Posts",
-        link:"#",
+        link:"posts",
         img:PublishIcon
       ,
       },
@@ -67,25 +67,25 @@ export const NavList=[
       {
         id:1,
         text:"Elements",
-        link:"#",
+        link:"elements",
         img:EditNoteIcon
       },
       {
         id:2,
         text:"Notes",
-        link:"#",
+        link:"notes",
         img:EditNoteIcon
       },
       {
         id:3,
         text:"Calender",
-        link:"#",
+        link:"calender",
         img:CalendarMonthIcon
       },
       {
         id:4,
         text:"Forms",
-        link:"#",
+        link:"forms",
         img:FormatAlignLeftIcon
       },
     ]
@@ -97,14 +97,14 @@ export const NavList=[
       {
         id:1,
         text:"Settings",
-        link:"#",
+        link:"settings",
         img:SettingsIcon
 
       },
       {
         id:2,
         text:"Backups",
-        link:"#",
+        link:"backups",
         img:BackupIcon
       },
     ]
@@ -116,14 +116,14 @@ export const NavList=[
       {
         id:1,
         text:"Charts",
-        link:"#",
+        link:"charts",
         img:BarChartIcon
 
       },
       {
         id:2,
         text:"Logs",
-        link:"#",
+        link:"logs",
         img:ListAltIcon
       },
     ]

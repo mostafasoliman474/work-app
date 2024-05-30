@@ -17,7 +17,6 @@ const SideBar = () => {
         </div>
 
         ))}
-        <p className='text-xl text-white'>username</p>
       </nav>
     </header>
   )

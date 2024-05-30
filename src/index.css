@@ -6,11 +6,20 @@
   --icons:white;
 }
 *{
-  @apply p-0 m-0 box-border outline-none;
+  @apply p-0 m-0 box-border outline-none ;
 }
 body{
   background-color: var(--body);
 }
 .icons{
   @apply text-white;
+}
+.contentContainer{
+  @apply flex-[6];
+}
+.profile_p{
+  @apply text-2xl ;
+}
+td{
+  @apply text-black
 }

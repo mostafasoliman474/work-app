@@ -1,16 +1,10 @@
 import React from 'react'
-import Nav from '../components/Nav.tsx'
-import SideBar from '../components/SideBar.tsx'
+
 import { Users } from '../data.ts'
 
 const Home = () => {
   return (
-    <div>
-      <Nav />
-      <div className='flex gap-5 '>
-
-        <SideBar/>
-        <div className='flex-[6] flex gap-5'>
+        <div className='contentContainer flex gap-5'>
           
           <div className='flex-[2]'>
             <div className='flex flex-col gap-4 rounded-xl border border-gray-400 p-3'>
@@ -25,7 +19,6 @@ const Home = () => {
                   </div>
                   <p className='text-white text-sm font-bold'>${user.payed}</p>
                 </div>  
-
                 ))}
               </div>  
             </div>  
@@ -38,8 +31,7 @@ const Home = () => {
           <div>upper</div>  
             <div>low</div></div> 
         </div>
-      </div>
-    </div>
+
   )
 }
 
