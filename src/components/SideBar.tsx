@@ -1,5 +1,3 @@
-import React from 'react'
-
 import { NavList } from '../data.ts'
 const SideBar = () => {
   return (
@@ -7,15 +5,14 @@ const SideBar = () => {
       <nav className='flex flex-col gap-6 pl-5'>
         {NavList.map((div)=>(
         <div key={div.id} className='flex flex-col gap-2'>
-          <a href='#' className='text-gray-600 cursor-pointer'>{div.title}</a>
+          <p className='text-gray-600'>{div.title}</p>
           {div.links.map(link=>(
-          <div key={link.id} className='hover:bg-cyan-400 py-3 rounded flex gap-3 p-1'>
+          <a key={link.id} href={link.link} className='hover:bg-cyan-400 py-3 rounded flex gap-3 p-1'>
             <link.img className='icons'/>
-            <a href={link.link} className='text-white cursor-pointer'>{link.text}</a>
-          </div>
+            <p className='text-white cursor-pointer'>{link.text}</p>
+          </a>
           ))}
         </div>
-
         ))}
       </nav>
     </header>

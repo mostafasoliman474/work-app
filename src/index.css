@@ -23,3 +23,9 @@ body{
 td{
   @apply text-black
 }
+tr{
+  @apply border-b h-16;
+}
+.Img__user_div{
+  @apply flex justify-center items-center pt-2;
+}

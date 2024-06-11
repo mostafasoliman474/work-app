@@ -114,7 +114,6 @@ export const App = () => {
     <div>
       <Nav />
       <div className='flex gap-5 '>
-
       <SideBar/>
       <RouterProvider router={router}/>
       </div>
