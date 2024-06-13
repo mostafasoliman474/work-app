@@ -1,11 +1,24 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { products } from '../data.ts'
 import { BorderColorOutlined, CheckOutlined, ClearOutlined, DeleteForeverOutlined, Search } from '@mui/icons-material'
 
-
 const Products = () => {
+  const[search,setSearch]=useState('');
+  function getsearch(e){
+    setSearch(e.target.value.toLowerCase())
+  }
+
+   const searchedData =products.filter((product)=>{
+      return(
+        product.title.toLowerCase().includes(search)||
+        product.color.toLowerCase().includes(search)||
+        product.producer.toLowerCase().includes(search)
+      )
+    })
+
   return (
     <div className='contentContainer flex flex-col gap-10'>
+
       <div className='flex gap-5'>
         <p className='text-white text-2xl font-bold'>PRODUCTS</p>
         <button type='button' className='p-2 bg-white rounded'>Add new product</button>
@@ -14,7 +27,7 @@ const Products = () => {
       <div className='flex flex-col bg-white py-5 px-3 gap-5 rounded '>
         <div className='flex p-1  max-w-[20%] items-center border-b border-gray-400 hover:border-black hover:border-b-2  transition-[ease-in_30ms]'>
           <Search className='w-6 h-6 text-black' />
-          <input type='text' placeholder='Search...' className='outline-none text-black pl-1' />
+          <input type='text' placeholder='Search...' className='outline-none text-black pl-1' onChange={getsearch}/>
         </div>
         <table className='text-black '>
           <thead className=''>
@@ -34,7 +47,7 @@ const Products = () => {
             </tr>
           </thead>
           <tbody className=''>
-            {products.map(product => (
+            {searchedData.map(product => (
               <tr key={product.id} className='' >
                 <td className='text-center'>
                   <input type='checkbox' name={`${product.id}`}/>

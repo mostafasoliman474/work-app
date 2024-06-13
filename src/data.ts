@@ -17,14 +17,14 @@ export const NavList=[
       {
         id:1,
         text:"Home Page",
-        link:"/",
-        img:HomeIcon
+        link:"",
+        icon:HomeIcon
       },
       {
         id:2,
         text:"Profile",
         link:"profile",
-        img:GroupIcon
+        icon:GroupIcon
       },
     ]
   },
@@ -36,26 +36,26 @@ export const NavList=[
         id:1,
         text:"Users",
         link:"users",
-        img:GroupIcon
+        icon:GroupIcon
       },
       {
         id:2,
         text:"Products",
         link:"products",
-        img:InventoryIcon
+        icon:InventoryIcon
       },
       {
         id:3,
         text:"Orders",
         link:"orders",
-        img:ListAltIcon
+        icon:ListAltIcon
 
       },
       {
         id:4,
         text:"Posts",
         link:"posts",
-        img:PublishIcon
+        icon:PublishIcon
       ,
       },
     ]
@@ -68,25 +68,25 @@ export const NavList=[
         id:1,
         text:"Elements",
         link:"elements",
-        img:EditNoteIcon
+        icon:EditNoteIcon
       },
       {
         id:2,
         text:"Notes",
         link:"notes",
-        img:EditNoteIcon
+        icon:EditNoteIcon
       },
       {
         id:3,
         text:"Calender",
         link:"calender",
-        img:CalendarMonthIcon
+        icon:CalendarMonthIcon
       },
       {
         id:4,
         text:"Forms",
         link:"forms",
-        img:FormatAlignLeftIcon
+        icon:FormatAlignLeftIcon
       },
     ]
   },
@@ -98,14 +98,14 @@ export const NavList=[
         id:1,
         text:"Settings",
         link:"settings",
-        img:SettingsIcon
+        icon:SettingsIcon
 
       },
       {
         id:2,
         text:"Backups",
         link:"backups",
-        img:BackupIcon
+        icon:BackupIcon
       },
     ]
   },
@@ -117,14 +117,14 @@ export const NavList=[
         id:1,
         text:"Charts",
         link:"charts",
-        img:BarChartIcon
+        icon:BarChartIcon
 
       },
       {
         id:2,
         text:"Logs",
         link:"logs",
-        img:ListAltIcon
+        icon:ListAltIcon
       },
     ]
   },
