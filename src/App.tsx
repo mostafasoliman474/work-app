@@ -29,11 +29,11 @@ import Footer from "./components/Footer.tsx";
 const Layout = () => {
   return (
     <div>
-      <Nav />
+      <Nav />    
       <div className="flex gap-5 ">
         <SideBar />
-        <Outlet />
-      </div>
+        <Outlet />      
+      </div> 
       <Footer />
     </div>
   )
