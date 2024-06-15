@@ -1,9 +1,31 @@
 import { BorderColorOutlined, CheckOutlined, ClearOutlined, DeleteForeverOutlined, Search } from '@mui/icons-material';
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { userRows } from '../data.ts';
 
 
 const Users = () => {
+  const [search, setSearch] = useState('')
+  const [filteredUser, setFilteredUser] = useState([])
+  
+  const getnew = (e)=>{
+    setSearch(e.target.value)
+  }
+  useEffect(
+   ()=>{
+      const filterdData =()=>{
+
+        search?userRows.filter((user)=>{
+          for (const [key, value] of Object.entries(user)){
+            let result = `${value}`;
+          (`${value}`.toLowerCase()).startsWith(search) && setFilteredUser([{...filterdData,user}])
+        
+        }
+        }):setFilteredUser(userRows);
+    }
+    filterdData()
+   }
+    ,[search,filteredUser])
+    console.log(filteredUser)
   return (
     <div className='contentContainer flex flex-col gap-10'>
       <div className='flex gap-5'>
@@ -14,7 +36,7 @@ const Users = () => {
       <div className='flex flex-col bg-white py-5 px-3 gap-5 rounded '>
         <div className='flex p-1  max-w-[20%] items-center border-b border-gray-400 hover:border-black hover:border-b-2  transition-[ease-in_30ms]'>
           <Search className='w-6 h-6 text-black' />
-          <input type='text' placeholder='Search...' className='outline-none text-black pl-1' />
+          <input type='text' placeholder='Search...' className='outline-none text-black pl-1' onChange={(e)=>getnew(e)}/>
         </div>
         <table className='text-black '>
           <thead className=''>
@@ -34,7 +56,7 @@ const Users = () => {
             </tr>
           </thead>
           <tbody className=''>
-            {userRows.map(user => (
+            {filteredUser.map(user => (
               <tr key={user.id} className='' >
                 <td className='text-center'>
                   <input type='checkbox' name={`${user.id}`}/>

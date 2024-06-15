@@ -3,6 +3,7 @@ import React from 'react'
 import Home from './pages/Home.tsx'
 import {
   createBrowserRouter,
+  Outlet,
   RouterProvider,
   // Route,
   // Link,
@@ -23,102 +24,115 @@ import Charts from './pages/Charts.tsx';
 import Calender from './pages/Calender.tsx';
 import Logs from './pages/Logs.tsx';
 import Footer from './components/Footer.tsx';
-export const App = () => {
-  const router = createBrowserRouter([
-    {
-      path: "/",
-      element: (
-        <Home/>
-      ),
-    },
-    {
-      path: "products",
-      element: (
-        <Products/>
-      ),
-    },
-    {
-      path: "users",
-      element: (
-        <Users/>
-      ),
-    },
-    {
-      path: "posts",
-      element: (
-        <Posts/>
-      ),
-    },
-    {
-      path: "profile",
-      element: (
-        <Profile/>
-      ),
-    },
-    {
-      path: "settings",
-      element: (
-        <Setting/>
-      ),
-    },
-    {
-      path: "orders",
-      element: (
-        <Orders/>
-      ),
-    },
-    {
-      path: "backups",
-      element: (
-        <Backups/>
-      ),
-    },
-    {
-      path: "notes",
-      element: (
-        <Notes/>
-      ),
-    },
-    {
-      path: "forms",
-      element: (
-        <Forms/>
-      ),
-    },
-    {
-      path: "elements",
-      element: (
-        <ELements/>
-      ),
-    },
-    {
-      path: "charts",
-      element: (
-        <Charts/>
-      ),
-    },
-    {
-      path: "calender",
-      element: (
-        <Calender/>
-      ),
-    },
-    {
-      path: "logs",
-      element: (
-        <Logs/>
-      ),
-    },
-  ]);
+const Layout = () => {
   return (
     <div>
       <Nav />
-      <div className='flex gap-5 '>
-      <SideBar/>
-      <RouterProvider router={router}/>
+      <div className="flex gap-5 ">
+        <SideBar />
+        <Outlet />
       </div>
-      <Footer/>
+      <Footer />
     </div>
+  )
+}
+const router = createBrowserRouter([
+  {
+    path: '/',
+    element: <Layout />,
+    children: [
+      {
+        path: "/",
+        element: (
+          <Home />
+        ),
+      },
+      {
+        path: "products",
+        element: (
+          <Products />
+        ),
+      },
+      {
+        path: "users",
+        element: (
+          <Users />
+        ),
+      },
+      {
+        path: "posts",
+        element: (
+          <Posts />
+        ),
+      },
+      {
+        path: "profile",
+        element: (
+          <Profile />
+        ),
+      },
+      {
+        path: "settings",
+        element: (
+          <Setting />
+        ),
+      },
+      {
+        path: "orders",
+        element: (
+          <Orders />
+        ),
+      },
+      {
+        path: "backups",
+        element: (
+          <Backups />
+        ),
+      },
+      {
+        path: "notes",
+        element: (
+          <Notes />
+        ),
+      },
+      {
+        path: "forms",
+        element: (
+          <Forms />
+        ),
+      },
+      {
+        path: "elements",
+        element: (
+          <ELements />
+        ),
+      },
+      {
+        path: "charts",
+        element: (
+          <Charts />
+        ),
+      },
+      {
+        path: "calender",
+        element: (
+          <Calender />
+        ),
+      },
+      {
+        path: "logs",
+        element: (
+          <Logs />
+        ),
+      },
+    ]
+  }
+
+
+]);
+export const App = () => {
+  return (
+    <RouterProvider router={router} />
   )
 }
 
