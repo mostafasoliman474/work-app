@@ -7,7 +7,7 @@ const Nav = () => {
         <header className='w-full '>
             <nav className='flex justify-between w-full m-auto py-3 px-4'>
                 <div>
-                    <p className='text-2xl text-white'>CATA Admin</p>
+                    <p className='text-2xl '>CATA Admin</p>
                 </div>
                 <div className='flex gap-4'>
                     <SearchOutlined className='icons' />
@@ -18,7 +18,7 @@ const Nav = () => {
                     <div className='h-8 w-8 rounded-full'>
                         <img alt='profile' className='rounded-full' src='https://images.pexels.com/photos/1542085/pexels-photo-1542085.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1' />
                     </div>
-                    <p className='text-white'>userName</p>
+                    <p className=''>userName</p>
                     <SettingsOutlined className='icons' />
                 </div>
             </nav>

@@ -1,27 +1,34 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { products } from '../data.ts'
 import { BorderColorOutlined, CheckOutlined, ClearOutlined, DeleteForeverOutlined, Search } from '@mui/icons-material'
 
 const Products = () => {
   const[search,setSearch]=useState('');
+  const[filteredProduct,setFilteredProduct]=useState([]);
   function getsearch(e){
     setSearch(e.target.value.toLowerCase())
   }
-
-   const searchedData =products.filter((product)=>{
-      return(
-        product.title.toLowerCase().includes(search)||
-        product.color.toLowerCase().includes(search)||
-        product.producer.toLowerCase().includes(search)
-      )
-    })
-
+  useEffect(()=>{
+    const searchedData = () => {
+      const productsFiltered = products.filter((product) => {
+          return(
+            product.color.toLowerCase().includes(search) ||
+            product.producer.toLowerCase().includes(search) ||
+            product.price.toLowerCase().includes(search) ||
+            product.title.toLowerCase().includes(search) 
+          )
+      })
+      setFilteredProduct(productsFiltered);
+    }
+    search?searchedData():setFilteredProduct(products);
+  }
+,[search])
   return (
     <div className='contentContainer flex flex-col gap-10'>
 
       <div className='flex gap-5'>
         <p className='text-white text-2xl font-bold'>PRODUCTS</p>
-        <button type='button' className='p-2 bg-white rounded'>Add new product</button>
+        <a type='button' className='p-2 bg-white rounded' href='addproduct'>Add new product</a>
 
       </div>
       <div className='flex flex-col bg-white py-5 px-3 gap-5 rounded '>
@@ -47,7 +54,7 @@ const Products = () => {
             </tr>
           </thead>
           <tbody className=''>
-            {searchedData.map(product => (
+            {filteredProduct.map(product => (
               <tr key={product.id} className='' >
                 <td className='text-center'>
                   <input type='checkbox' name={`${product.id}`}/>

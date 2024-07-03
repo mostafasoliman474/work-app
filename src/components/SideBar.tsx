@@ -11,7 +11,7 @@ const SideBar = () => {
           {div.links.map(item=>(
             <Link key={item.id} to={`/${item.link}`} className='hover:bg-cyan-400 py-3 rounded flex gap-3 p-1'>
             <item.icon className='icons'/>
-            <p className='text-white cursor-pointer'>{item.text}</p>
+            <p className='cursor-pointer'>{item.text}</p>
           </Link>
           ))}
         </div>
@@ -20,5 +20,4 @@ const SideBar = () => {
     </header>
   )
 }
-
 export default SideBar

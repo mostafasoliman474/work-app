@@ -2,8 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 :root{
-  --body:#2a3447;
-  --icons:white;
+  --body:#ffffff;
+  --icons:rgb(0, 0, 0);
 }
 *{
   @apply p-0 m-0 box-border outline-none ;
@@ -12,7 +12,7 @@ body{
   background-color: var(--body);
 }
 .icons{
-  @apply text-white;
+  @apply text-black;
 }
 .contentContainer{
   @apply flex-[6];
@@ -28,4 +28,29 @@ tr{
 }
 .Img__user_div{
   @apply flex justify-center items-center pt-2;
+}
+/* .input-form{
+  @apply h-[50px] w-[40%] rounded-lg pl-3 text-xl 
+} */
+.input_container {
+  @apply relative border-b border-black mt-[30px] bg-white;
+}
+
+.lable {
+  position: absolute;
+  top: 0;
+  left: 5px;
+  transition: all 0.3s linear;
+  z-index: 1;
+  font-size: 10px;
+}
+
+.input_register {
+  @apply outline-none relative z-[2] bg-transparent p-[2px_5px] text-xs;
+}
+
+input:focus+.lable,
+input:valid+.lable {
+  top: -18px;
+  font-size: 12px;
 }

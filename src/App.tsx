@@ -24,6 +24,8 @@ import Charts from "./pages/Charts.tsx";
 import Calender from "./pages/Calender.tsx";
 import Logs from "./pages/Logs.tsx";
 import Footer from "./components/Footer.tsx";
+import AddUser from "./pages/AddUser.tsx";
+import AddProduct from "./pages/AddProduct.tsx";
 
 
 const Layout = () => {
@@ -100,6 +102,18 @@ const router = createBrowserRouter([
       {
         path: "logs",
         element: <Logs />,
+      },
+      {
+        path: "adduser",
+        element: <AddUser />,
+      },
+      {
+        path: "addproduct",
+        element: <AddProduct />,
+      },
+      {
+        path: "adduser",
+        element: <AddUser />,
       },
     ]
   }]);
