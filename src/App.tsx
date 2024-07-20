@@ -1,12 +1,10 @@
 import React from "react";
-// import Nav from './components/Nav.tsx'
+
 import Home from "./pages/Home.tsx";
 import {
   createBrowserRouter,
   Outlet,
   RouterProvider,
-  // Route,
-  // Link,
 } from "react-router-dom";
 import Products from "./pages/Products.tsx";
 import Users from "./pages/Users.tsx";
@@ -26,7 +24,7 @@ import Logs from "./pages/Logs.tsx";
 import Footer from "./components/Footer.tsx";
 import AddUser from "./pages/AddUser.tsx";
 import AddProduct from "./pages/AddProduct.tsx";
-
+import Login from "./pages/Login.tsx";
 
 const Layout = () => {
   return (
@@ -47,6 +45,10 @@ const router = createBrowserRouter([
     path: '/',
     element: <Layout />,
     children: [
+      {
+        path: "login",
+        element: <Login />
+      },
       {
         path: "/",
         element: <Home />
