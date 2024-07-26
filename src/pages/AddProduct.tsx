@@ -1,5 +1,6 @@
 import axios from 'axios'
 import React, { useState } from 'react'
+import { useSelector } from 'react-redux'
 const radio = {
     ask: "inStock",
     choices: [
@@ -12,12 +13,12 @@ const radio = {
     ]
 }
 const AddProduct = () => {
-    console.log()
+    const {accessToken} = useSelector(state=>state.user.currentUser)
     const getData = async (e) => {
         e.preventDefault()
         try {
-            const data = await axios.post("http://localhost:5000/api/product/",body,{headers:{
-                "token":process.env.REACT_APP_Token
+            const data = await axios.post("http://localhost:8000/api/product/",body,{headers:{
+                "token":accessToken
             }})
             
         

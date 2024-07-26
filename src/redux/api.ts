@@ -1,12 +1,14 @@
 import axios from "axios"
-import { connedctionFailure, connectionStart, connectionSuccess } from "./userReducer"
+import { connectionfailuer, connectionStart, connectionSuccess } from "./userReducer.ts"
 
-export const fetching=async(dispatch,user)=>{
-    dispatch(connectionStart());
+export const fetchingData = async(dispatch,user)=>{
+    dispatch(connectionStart())
     try {
-        const res=await axios.post(`${process.env.REACT_APP_BACKEND_SERVER_URL}/api/auth/login`,user)
-        dispatch(connectionSuccess(res.data)) 
+        const res = await axios.post("http://localhost:8000/api/auth/login",user)
+        dispatch(connectionSuccess(res.data))
+        
     } catch (error) {
-        dispatch(connedctionFailure()) 
+        console.log(error)
+        dispatch(connectionfailuer())
     }
 }

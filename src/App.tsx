@@ -5,6 +5,7 @@ import {
   createBrowserRouter,
   Outlet,
   RouterProvider,
+  Navigate
 } from "react-router-dom";
 import Products from "./pages/Products.tsx";
 import Users from "./pages/Users.tsx";
@@ -25,6 +26,13 @@ import Footer from "./components/Footer.tsx";
 import AddUser from "./pages/AddUser.tsx";
 import AddProduct from "./pages/AddProduct.tsx";
 import Login from "./pages/Login.tsx";
+import { useSelector } from "react-redux";
+
+export const App = () => {
+  return (
+    <RouterProvider router={router} />
+  );
+};
 
 const Layout = () => {
   return (
@@ -46,12 +54,8 @@ const router = createBrowserRouter([
     element: <Layout />,
     children: [
       {
-        path: "login",
-        element: <Login />
-      },
-      {
         path: "/",
-        element: <Home />
+        element:<Home/>
       },
       {
         path: "products",
@@ -118,10 +122,9 @@ const router = createBrowserRouter([
         element: <AddUser />,
       },
     ]
+  },{
+    path:'/login',
+    element:<Login/>
   }]);
 
-export const App = () => {
-  return (
-    <RouterProvider router={router} />
-  );
-};
+
