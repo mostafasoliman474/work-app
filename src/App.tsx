@@ -5,7 +5,7 @@ import {
   createBrowserRouter,
   Outlet,
   RouterProvider,
-  Navigate
+  // Navigate
 } from "react-router-dom";
 import Products from "./pages/Products.tsx";
 import Users from "./pages/Users.tsx";
@@ -26,7 +26,7 @@ import Footer from "./components/Footer.tsx";
 import AddUser from "./pages/AddUser.tsx";
 import AddProduct from "./pages/AddProduct.tsx";
 import Login from "./pages/Login.tsx";
-import { useSelector } from "react-redux";
+// import { useSelector } from "react-redux";
 
 export const App = () => {
   return (

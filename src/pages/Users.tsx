@@ -1,7 +1,7 @@
 import { BorderColorOutlined, CheckOutlined, ClearOutlined, DeleteForeverOutlined, Search } from '@mui/icons-material';
 import React, { useEffect, useState } from 'react'
 import axios from 'axios';
-// import { useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 
 
 const Users = () => {
@@ -28,12 +28,10 @@ const Users = () => {
   //   }
   // ,[search])
   // console.log(filteredUser)
-  // const { currentUser } = useSelector(state => state.user)
-  // console.log(currentUser.accessToken)
-  const key = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2ODlhOWIwZGEzZTYxN2VmZWNlNDgwMCIsImlzQWRtaW4iOnRydWUsImlhdCI6MTcyMTk5ODA5MiwiZXhwIjoxNzIyMjU3MjkyfQ.rl0tdtyZb489dlDtaEihXvC_xbNAhBhH7Q-P01GuRbo'
-  const token = `Bearer ${key}`;
- 
-
+  // const key = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2YTNkZmQ0NmIxM2U4OTM0MzhiODc4YyIsImlzQWRtaW4iOnRydWUsImlhdCI6MTcyMjMyODc1NCwiZXhwIjoxNzIyNTg3OTU0fQ.FvsoIS1JWEAffOjeimlDrKuE3pN3e1pXljae4NG08Go'
+  const { currentUser } = useSelector(state => state.user)
+  const accessToken = currentUser.accessToken
+  const token = `Bearer ${accessToken}`;
   useEffect(
     () => {
       const getUsers = async () => {

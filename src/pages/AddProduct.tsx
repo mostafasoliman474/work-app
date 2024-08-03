@@ -1,130 +1,87 @@
 import axios from 'axios'
 import React, { useState } from 'react'
 import { useSelector } from 'react-redux'
-const radio = {
-    ask: "inStock",
-    choices: [
-        {
-            text: "yes", value: 1,
-        },
-        {
-            text: "no", value: 0,
-        },
-    ]
-}
+import { useNavigate } from 'react-router-dom'
+
 const AddProduct = () => {
-    const {accessToken} = useSelector(state=>state.user.currentUser)
+    const { currentUser } = useSelector(state => state.user)
+    const accessToken = currentUser.accessToken
+    const token = `Bearer ${accessToken}`;
+    const navigate = useNavigate();
+    const [changes, setChanges] = useState({})
+    const handelSubmit = (e) => {
+        const value = e.target.value;
+        setChanges({
+            ...changes,
+            [e.target.name]: value,
+        })
+    }
     const getData = async (e) => {
         e.preventDefault()
         try {
-            const data = await axios.post("http://localhost:8000/api/product/",body,{headers:{
-                "token":accessToken
-            }})
-            
-        
-            console.log(data.data)
+            const data = await axios.post(`${process.env.REACT_APP_SERVER}/api/product/`, changes, {
+                headers: {
+                    "token": token
+                }
+            })
+            navigate('/products?the%product%added%successfully', data.data)
         } catch (error) {
             console.log(error)
         }
-
     }
-    const [color, setColor] = useState([])
-    const [size, setSize] = useState([])
-    const [img, setImg] = useState('')
-    const [producer, setProducer] = useState('')
-    const [title, setTitle] = useState('')
-    const [price, setPrice] = useState('')
-    // const [inStock, setInStock] = useState('')
-    const [category, setCategory] = useState([])
-    const getTitle = (e) => {
-        let value = e.target.value;
-        setTitle(value)
-    }
-    const getProducer = (e) => {
-        let value = e.target.value;
-        setProducer(value)
-    }
-    const getImg = (e) => {
-        let value = e.target.value;
-        setImg(value)
-    }
-    const getPrice = (e) => {
-        let value = e.target.value;
-        setPrice(value)
-    }
-    const getColor = (e) => {
-        let value = e.target.value;
-        setColor(value)
-    }
-    const getSize = (e) => {
-        let value = e.target.value;
-        setSize(value)
-    }
-    const getCategory = (e) => {
-        let value = e.target.value;
-        setCategory(value)
-    }
-    const body={
-        title, producer, img, category, size, color, price
-    }
-    console.log(body)
     return (
         <div className='contentContainer'>
             <form className='flex flex-col gap-5 justify-center items-center'>
                 <div className='input_container'>
-                    <input type='text' className='input_register' aria-required="true" onChange={(e) => getTitle(e)} />
+                    <input type='text' className='input_register' name='title' aria-required="true" onChange={handelSubmit} />
                     <label className='lable'>
-                        title
+                        Title
                     </label>
                 </div>
                 <div className='input_container'>
-                    <input type='text' className='input_register' aria-required="true" onChange={(e) => getProducer(e)} />
+                    <input type='text' className='input_register' name='producer' aria-required="true" onChange={handelSubmit} />
                     <label className='lable'>
-                        producer
+                        Producer
                     </label>
                 </div>
                 <div className='input_container'>
-                    <input type='text' className='input_register' aria-required="true" onChange={(e) => getImg(e)} />
+                    <input type='text' className='input_register' name='img' aria-required="true" onChange={handelSubmit} />
                     <label className='lable'>
-                        img
+                        Image
                     </label>
                 </div>
                 <div className='input_container'>
-                    <input type='text' className='input_register' aria-required="true" onChange={(e) => getColor(e)} />
+                    <input type='text' className='input_register' name='color' aria-required="true" onChange={handelSubmit} />
                     <label className='lable'>
-                        color
+                        Color
                     </label>
                 </div>
                 <div className='input_container'>
-                    <input type='text' className='input_register' aria-required="true" onChange={(e) => getSize(e)} />
+                    <input type='text' className='input_register' name="size" aria-required="true" onChange={handelSubmit} />
                     <label className='lable'>
-                        size
+                        Size
                     </label>
                 </div>
 
                 <div className='input_container'>
-                    <input type='text' className='input_register' aria-required="true" onChange={(e) => getCategory(e)} />
+                    <input type='text' className='input_register' name='color' aria-required="true" onChange={handelSubmit} />
                     <label className='lable'>
                         Category
                     </label>
                 </div>
                 <div className='input_container'>
-                    <input type='number' className='input_register' aria-required="true" onChange={(e) => getPrice(e)} />
+                    <input type='number' className='input_register' name='price' aria-required="true" onChange={handelSubmit} />
                     <label className='lable'>
-                        price
+                        Price
                     </label>
                 </div>
 
                 <div className='input_container border-none justify-start items-start'>
-                    <p className='text-center'>inStock</p>
-                    <div className='flex gap-5'>
-                        {radio.choices.map(option => (
-                            <div key={option.text}>
-                                <input type='radio' name='instock' value={option.value} id={option.text} />
-                                <label>{option.text}</label>
-                            </div>
-                        ))}
-                    </div>
+                    <label className='text-center'>inStock</label>
+                    <select onChange={handelSubmit} name='inStock'>
+                        <option value='a'>Yes</option>
+                        <option value='false'>no</option>
+                    </select>
                 </div>
                 <button type='submit' onClick={(e) => getData(e)} className='w-[20%] bg-green-600 text-white cursor-pointer h-[50px] rounded-lg font-bold text-xl' >
                     Submit</button>
