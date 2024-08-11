@@ -18,6 +18,7 @@ const Products = () => {
 
 
 // GET ALL PRODUCT
+console.log(process.env.REACT_APP_SERVER)
   useEffect(() => {
     const dataFetching = async () => {
       try {

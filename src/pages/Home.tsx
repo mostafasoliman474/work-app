@@ -21,14 +21,24 @@ const Home = () => {
             ))}
           </div>
         </div>
-        <div>low</div>
+        <div>
+          <h1>Total visit</h1>
+        </div>
       </div>
       <div className='flex-[3] bg-white'>
-        <div>upper</div>
-        <div>low</div></div>
+        <div>
+          <div><h1>Total users</h1></div>
+          <div><h1>Total products</h1></div>
+          <div><h1>Total ratio</h1></div>
+          <div><h1>Total revenu</h1></div>
+        </div>
+        <div>
+          <h1>Revenue Analytics</h1>
+        </div>
+      </div>
       <div className='flex-[2] bg-green-100'>
-        <div>upper</div>
-        <div>low</div>
+        <div>Revenue Analytics</div>
+        <div>Profit earned</div>
       </div>
     </div>
 

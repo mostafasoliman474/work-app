@@ -35,6 +35,9 @@ tr{
 .input_container {
   @apply relative border-b border-black mt-[30px] bg-white;
 }
+.table-orders{
+  @apply text-center ml-10
+}
 
 .lable {
   position: absolute;
